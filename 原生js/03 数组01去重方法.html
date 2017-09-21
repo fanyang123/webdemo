@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+<body>
+    <!-- myUnique方法，是数组去重的方法，给数组原型对象Array中添加 -->
+    <script>
+        //Array为内置数组对象
+        Array.prototype.myUnique = function(){
+            var obj={};
+            for (var i = 0; i < this.length; i++) {
+                var cur = this[i];
+                if (obj[cur] == cur) {
+                    this[i] = this[this.length-1];
+                    this.lenth--;
+                    i--;
+                    continue;
+                }
+                obj[cur]=cur;    
+            }
+            obj=null;ß
+                return this;
+        }
+        var ary = [12,13,14,15,12,16,18,13,18];
+        ary.myUnique();
+        console.log(ary);
+    </script>
+</body>
+</html>
